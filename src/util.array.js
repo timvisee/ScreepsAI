@@ -3,7 +3,7 @@
  *
  * @type {{isArray: modules.export.isArray}}
  */
-modules.export = {
+module.export = {
     isArray: function(arr) {
         return arr instanceof Array;
     }

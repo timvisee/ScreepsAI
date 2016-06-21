@@ -1,4 +1,4 @@
-var arrayutils = require('arrayutils');
+var arrayUtils = require('util.array');
 
 /**
  * Method to check whether an object is an array.
@@ -8,7 +8,7 @@ var arrayutils = require('arrayutils');
  * @returns {boolean}
  */
 Array.prototype.isArray = function(arr) {
-    return arrayutils.isArray(arr);
+    return arrayUtils.isArray(arr);
 };
 
 /**
@@ -18,7 +18,7 @@ Array.prototype.isArray = function(arr) {
  */
 Array.prototype.pushAll = function(arr) {
     // Push the object in the array if it's not an array
-    if(!arrayutils.isArray(arr)) {
+    if(!arrayUtils.isArray(arr)) {
         this.push(arr);
         return;
     }
