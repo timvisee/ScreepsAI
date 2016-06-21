@@ -1,3 +1,5 @@
+var taskTypes = require('task.type');
+
 const MEMORY_KEY_SOURCES = 'sources';
 
 module.exports = {
@@ -21,6 +23,13 @@ module.exports = {
                     };
                 });
 
-        // TODO: Build state for each source based on.
+        // Loop through all the creeps
+        for(var creepName in Game.creeps) {
+            // Make sure this creep has the proper task
+            if(!Game.creeps[creepName].isTaskType(taskTypes.TASK_HARVEST_ENERGY))
+                continue;
+
+            // TODO: Calculate and append the current/enroute harvester properties for the sources.
+        }
     }
 };
