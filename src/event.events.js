@@ -3,7 +3,7 @@ var i = 0;
 
 /**
  * List of events.
- * @type {{EVENT_TICK_START: number, EVENT_TICK_END: number}}
+ * @type {*}
  */
 module.exports = {
 
@@ -21,5 +21,15 @@ module.exports = {
      * Called before garbage collection.
      * The garbage collection will be cancelled if the event is cancelled.
      */
-    EVENT_GC: i++
+    EVENT_GC: i++,
+
+    /**
+     * Called when a task is started.
+     */
+    EVENT_TASK_START: i++,
+
+    /**
+     * Called when a task is (properly) completed.
+     */
+    EVENT_TASK_COMPLETE: i++
 };

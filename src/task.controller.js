@@ -1,3 +1,6 @@
+var EVENTS = require('event.events');
+var eventHandler = require('event.handler');
+
 module.exports = {
 
     /**
@@ -89,16 +92,20 @@ module.exports = {
             return false;
         }
 
-        // Create the task key for the creep if it doesn't exist yet
-        if(!creep.hasOwnProperty('task'))
-            creep.task = {};
-
-        // Set the task type
-        creep.task.type = taskType;
+        // Create a task object
+        var newTask = {
+            type: taskType
+        };
 
         // Set the task data if defined
         if(data !== undefined)
-            creep.task.data = data;
+            newTask.data = data;
+
+        // Fire the task start event
+        eventHandler.fire(EVENTS.EVENT_TASK_START, newTask);
+
+        // Store the new task
+        creep.task = newTask;
     },
 
     /**
@@ -170,10 +177,14 @@ module.exports = {
             return null;
         }
 
-        // TODO: Fire the task complete event.
+        // Make sure the creep has a task
+        if(this.hasTask(creep)) {
+            // Fire the task start event
+            eventHandler.fire(EVENTS.EVENT_TASK_COMPLETE, creep.memory.task);
 
-        // Clear the current task
-        this.resetTask(creep, false);
+            // Clear the current task
+            this.resetTask(creep, false);
+        }
 
         // Reset the current task
         return this.assignTaskFromQueue(creep);
