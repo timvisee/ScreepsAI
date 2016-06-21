@@ -20,6 +20,18 @@ module.exports = {
     },
 
     /**
+     * Check whether the task that is assigned to the given creep equals the given task type.
+     *
+     * @param creep Creep.
+     * @param taskType Task type to equal to.
+     *
+     * @returns {boolean} True if the given task type equals the assigned task type, false if not.
+     */
+    isTaskType: function(creep, taskType) {
+        return this.getTaskType(creep) == taskType;
+    },
+
+    /**
      * Check whether a creep has a task assigned.
      *
      * @param creep Creep.

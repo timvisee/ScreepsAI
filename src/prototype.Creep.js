@@ -10,6 +10,17 @@ Creep.prototype.getTaskType = function() {
 };
 
 /**
+ * Check whether the task that is assigned to the creep equals the given task type.
+ *
+ * @param taskType Task type to equal to.
+ *
+ * @returns {boolean} True if the given task type equals the assigned task type, false if not.
+ */
+Creep.prototype.isTaskType = function(taskType) {
+    return taskController.isTaskType(this, taskType);
+};
+
+/**
  * Check whether the creep has a task assigned.
  *
  * @return {boolean} True if this creep has a task, false if not.
