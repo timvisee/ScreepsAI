@@ -2,6 +2,10 @@ var EVENTS = require('event.events');
 var eventHandler = require('event.handler');
 var gc = require('gc');
 
+eventHandler.listen(EVENTS.EVENT_TICK_END, function() {
+    console.log('Used CPU: ' + Game.cpu.getUsed());
+});
+
 /**
  * Core.
  *
