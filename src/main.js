@@ -1,4 +1,6 @@
+var core = require('core');
+
 module.exports.loop = function () {
-    // Hello world
-    console.log('Hello world!');
+    // Fire the tick event in the core
+    core.tick();
 };
