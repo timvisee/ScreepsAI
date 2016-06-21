@@ -1,3 +1,5 @@
+var gc = require('gc');
+
 /**
  * Core.
  *
@@ -8,5 +10,8 @@ module.exports = {
     /**
      * Called on server tick.
      */
-    tick: function() { }
+    tick: function() {
+        // Garbage collection
+        gc.gc();
+    }
 };
