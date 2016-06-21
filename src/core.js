@@ -20,6 +20,6 @@ module.exports = {
         gc.gc();
 
         // Fire the tick end event
-        eventHandler.fire(EVENTS.EVENT_TICK_START);
+        eventHandler.fire(EVENTS.EVENT_TICK_END);
     }
 };
