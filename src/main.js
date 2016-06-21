@@ -1,3 +1,6 @@
+// Include the prototypes
+require('prototype');
+
 var core = require('core');
 
 module.exports.loop = function () {
