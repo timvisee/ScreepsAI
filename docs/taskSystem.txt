@@ -1,0 +1,13 @@
+Task system.
+
+Tasks:
+- Each creep can be given a task. The creep focuses on that assigned task and completes it in order to go to the next task.
+- Each creep has a task queue which can be used to assign multiple tasks for a creep.
+- The first task in the task queue of a creep will be assigned to the creep when it's current task completes.
+- A creep won't have any task assigned if all of it's tasks are completed until a new task or series of tasks is assigned.
+
+Action:
+- An action is the current activity a creep is working on. For example, an action would be that a creep is moving to a given point in the room.
+- Actions should be as compact as possible.
+
+(WIP)
