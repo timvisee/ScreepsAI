@@ -4,6 +4,16 @@ var eventHandler = require('event.handler');
 module.exports = {
 
     /**
+     * Get the task object for the given creep.
+     *
+     * @param creep Creep.
+     */
+    getTaskObject: function(creep) {
+        // Return the task object, or null if it doesn't exist
+        return creep.memory.task || null;
+    },
+
+    /**
      * Get the type of task that is assigned to the given creep.
      *
      * @param creep Creep.
