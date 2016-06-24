@@ -24,8 +24,8 @@ var CreepTaskController = function(creep) {
         return;
 
     // Parse each task, and make it a Task instance
-    for(var i = 0, tasksCount = this._creep.memory.tasks.length; i < tasksCount; i++)
-        this._creep.memory.tasks[i] = Object.create(Task, this._creep.memory.tasks[i]);
+    for(var i = 0, taskCount = this._creep.memory.tasks.length; i < taskCount; i++)
+        this._creep.memory.tasks[i] = new Task(this._creep.memory.tasks[i]);
 };
 
 /**

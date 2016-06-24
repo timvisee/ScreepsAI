@@ -1,3 +1,5 @@
+var Action = require('action.action');
+
 /**
  * Task constructor.
  *
@@ -17,6 +19,18 @@ var Task = function(instance) {
 
     // Set the actions
     this._actions = instance._actions || [];
+
+    // Do some parsing, but only if at least one action is available
+    if(!this.hasActions())
+        return;
+
+    // Everything is all right if the actions are an instance of the task object
+    if(this._actions[0] instanceof Action)
+        return;
+
+    // Parse each action, and make each an Action instance
+    for(var i = 0, actionCount = this._actions.length; i < actionCount; i++)
+        this._actions[i] = new Action(this._actions[i]);
 };
 
 /**
