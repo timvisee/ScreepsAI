@@ -40,7 +40,7 @@ Action.prototype.setType = function(actionType) {
  *
  * @returns {boolean} True if both action types compare, false if not.
  */
-Task.prototype.isType = function(actionType) {
+Action.prototype.isType = function(actionType) {
     // Compare the IDs of both actions
     return this._type.id == actionType.id;
 };
