@@ -111,7 +111,6 @@ Creep.prototype.resetTask = function(resetQueue) {
     return taskController.resetTask(this, resetQueue);
 };
 
-
 /**
  * Reset the task queue for the creep.
  * This removes all queued tasks from the creep if any are queued.
