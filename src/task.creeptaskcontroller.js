@@ -1,3 +1,5 @@
+var Task = require('task.task');
+
 /**
  * Creep task controller constructor.
  *
@@ -12,6 +14,18 @@ var CreepTaskController = function(creep) {
     // Create a list of empty tasks in the creep if a list doesn't currently exists
     if(!creep.memory.hasOwnProperty('tasks'))
         creep.memory.tasks = [];
+
+    // Do some parsing, but only if at least one task is available
+    if(!this.hasTasks())
+        return;
+
+    // Everything is all right if the tasks are an instance of the task object
+    if(this._creep.memory.tasks[0] instanceof Task)
+        return;
+
+    // Parse each task, and make it a Task instance
+    for(var i = 0, tasksCount = this._creep.memory.tasks.length; i < tasksCount; i++)
+        this._creep.memory.tasks[i] = Object.create(Task, this._creep.memory.tasks[i]);
 };
 
 /**
