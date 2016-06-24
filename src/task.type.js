@@ -1,8 +1,9 @@
-// Variable used to determine event indexes
+// Variable used to determine task type indices
 var i = 0;
 
 /**
- * List of tasks.
+ * List of task types.
+ *
  * @type {*}
  */
 module.exports = {
@@ -10,5 +11,7 @@ module.exports = {
     /**
      * Task to harvest energy.
      */
-    TASK_HARVEST_ENERGY: i++
+    TASK_HARVEST_ENERGY: {
+        id: i++
+    }
 };
