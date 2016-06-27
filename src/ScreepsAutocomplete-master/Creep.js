@@ -57,7 +57,7 @@ Creep.prototype =
     hitsMax: 0,
 
     /**
-     * A unique object identificator.
+     * A unique object identifier.
      * You can use Game.getObjectById method to retrieve an object instance by its id.
      *
      * @type {string}
