@@ -2,8 +2,6 @@
   "name": "ScreepsAI",
   "version": "0.0.0",
   "private": true,
-  "scripts": {
-    "start": "node ./src/main.js"
-  },
+  "scripts": { },
   "dependencies": { }
 }
