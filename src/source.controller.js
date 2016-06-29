@@ -25,8 +25,15 @@ module.exports = {
 
         // Loop through all the creeps
         for(var creepName in Game.creeps) {
+            // Get the task controller for the current creep
+            var taskController = Game.creeps[creepName].getTaskController();
+
+            // Make sure a task is currently assigned
+            if(!taskController.hasTasks())
+                continue;
+
             // Make sure this creep has the proper task
-            if(!Game.creeps[creepName].isTaskType(taskTypes.TASK_HARVEST_ENERGY))
+            if(!taskController.getTask().isType(taskTypes.TASK_HARVEST_ENERGY))
                 continue;
 
             // TODO: Calculate and append the current/enroute harvester properties for the sources.
