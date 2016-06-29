@@ -16,11 +16,11 @@ Creep.prototype._taskController = null;
  */
 Creep.prototype.getTaskController = function() {
     // Return the task controller if it's already instantiated
-    if(this._taskController)
+    if(this._taskController !== undefined && this._taskController !== null)
         return this._taskController;
     
-    // Instantiate the task controller
-    this._taskController = new CreepTaskController(this);
+    // Instantiate and return the task controller
+    return (this._taskController = new CreepTaskController(this));
 };
 
 /**
