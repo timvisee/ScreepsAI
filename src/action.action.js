@@ -1,3 +1,6 @@
+var EVENTS = require('events.events');
+var eventHandler = require('event.handler');
+
 /**
  * Action constructor.
  *
@@ -10,8 +13,12 @@ var Action = function(instance) {
     if(!(instance instanceof Object))
         throw new Error('Invalid Task instance given.');
 
-    // Set the action type
+    // Set the action type and data
     this._type = instance._type;
+    this._data = instance._data;
+
+    // Set the completed state
+    this._completed = false;
 };
 
 /**
@@ -70,6 +77,45 @@ Action.prototype.tick = function() {
 
     // Call the tick method on the action logic
     action.tick();
+};
+
+/**
+ * Check whether this action is completed.
+ *
+ * @returns {boolean} True if the action is completed, false if not.
+ */
+Action.prototype.isCompleted = function() {
+    return this._completed;
+};
+
+/**
+ * Complete the action.
+ *
+ * @return {boolean} True if the action is successfully completed, false if the completion was cancelled.
+ * True is also returned if the action was already completed.
+ */
+Action.prototype.complete = function() {
+    // Make sure the action isn't completed already
+    if(this._completed)
+        return true;
+
+    // Call the action complete event
+    if(!eventHandler.fire(EVENTS.EVENT_ACTION_COMPLETE, {action: this}))
+        return false;
+
+    // Set the completed flag
+    this._completed = true;
+
+    // The action is completed, return true
+    return true;
+};
+
+/**
+ * Destroy the action after it has being used.
+ * This also destroys the memory used by the action.
+ */
+Action.prototype.destroy = function() {
+    // TODO: Remove all memory used by this action, and remove the whole action entry.
 };
 
 // Export the Action object
