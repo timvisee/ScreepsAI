@@ -31,5 +31,15 @@ module.exports = {
     /**
      * Called when a task is (properly) completed.
      */
-    EVENT_TASK_COMPLETE: i++
+    EVENT_TASK_COMPLETE: i++,
+
+    /**
+     * Called when an action is started.
+     */
+    EVENT_ACTION_START: i++,
+
+    /**
+     * Called when an action is completed.
+     */
+    EVENT_ACTION_COMPLETE: i++
 };
