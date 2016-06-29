@@ -175,8 +175,16 @@ Task.prototype.completeAction = function() {
 
 /**
  * Called on tick.
+ * This also routes the tick call to the assigned action.
  */
-Task.prototype.tick = function() { };
+Task.prototype.tick = function() {
+    // Get the action that is currently assigned
+    var currentAction = this.getAction();
+
+    // Fire the tick on the currently assigned action
+    if(currentAction !== undefined)
+        currentAction.tick();
+};
 
 // Export the Task object
 module.exports = Task;

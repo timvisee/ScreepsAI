@@ -148,8 +148,16 @@ CreepTaskController.prototype.completeTask = function() {
 
 /**
  * Called on tick.
+ * This also routes the tick call to the assigned task and action.
  */
-CreepTaskController.prototype.tick = function() { };
+CreepTaskController.prototype.tick = function() {
+    // Get the current assigned task
+    var currentTask = this.getTask();
+
+    // Fire the tick on the currently assigned task
+    if(currentTask !== undefined)
+        currentTask.tick();
+};
 
 // Export the object
 module.exports = CreepTaskController;
