@@ -45,5 +45,10 @@ Action.prototype.isType = function(actionType) {
     return this._type.id == actionType.id;
 };
 
+/**
+ * Called on tick.
+ */
+Action.prototype.tick = function() { };
+
 // Export the Action object
 module.exports = Action;
