@@ -22,3 +22,14 @@ Creep.prototype.getTaskController = function() {
     // Instantiate the task controller
     this._taskController = new CreepTaskController(this);
 };
+
+/**
+ * Tick the creep.
+ */
+Creep.prototype.tick = function() {
+    // Fire the tick method on the task controller
+    if(this._taskController)
+        this._taskController.tick();
+    else
+        this.getTaskController().tick();
+};
