@@ -28,6 +28,10 @@ module.exports = {
 
         // Update the source controller
         sourceController.update();
+        
+        // Tick all creeps
+        for(var creepName in Game.creeps)
+            Game.creeps[creepName].tick();
 
         // Fire the tick end event
         eventHandler.fire(EVENTS.EVENT_TICK_END);
