@@ -24,6 +24,17 @@ Action.prototype.getType = function() {
 };
 
 /**
+ * Get the actions logic file.
+ *
+ * @returns {string} Actions logic file.
+ *
+ * @private
+ */
+Action.prototype._getLogicFile = function() {
+    return this._type.file;
+};
+
+/**
  * Set the action type.
  *
  * @param {Object} actionType Action type object.
@@ -48,7 +59,18 @@ Action.prototype.isType = function(actionType) {
 /**
  * Called on tick.
  */
-Action.prototype.tick = function() { };
+Action.prototype.tick = function() {
+    // Get the action file and make sure it's valid
+    var actionFile = this._getLogicFile();
+    if(!actionFile)
+        throw new Error('Undefined action logic file.');
+
+    // Require the action
+    var action = require(this._getLogicFile());
+
+    // Call the tick method on the action logic
+    action.tick();
+};
 
 // Export the Action object
 module.exports = Action;

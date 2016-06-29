@@ -13,6 +13,6 @@ module.exports = {
      */
     ACTION_MOVE_TO: {
         id: i++,
-        file: 'moveTo'
+        file: 'action.logic.moveTo'
     }
 };
