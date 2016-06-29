@@ -4,7 +4,7 @@ var eventHandler = require('event.handler');
 /**
  * Garbage collector.
  *
- * @type {{}}
+ * @type {*}
  */
 module.exports = {
 
