@@ -182,7 +182,7 @@ Task.prototype.tick = function() {
     var currentAction = this.getAction();
 
     // Fire the tick on the currently assigned action
-    if(currentAction !== undefined)
+    if(currentAction !== null)
         currentAction.tick();
 };
 

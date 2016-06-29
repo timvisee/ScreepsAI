@@ -155,7 +155,7 @@ CreepTaskController.prototype.tick = function() {
     var currentTask = this.getTask();
 
     // Fire the tick on the currently assigned task
-    if(currentTask !== undefined)
+    if(currentTask !== null)
         currentTask.tick();
 };
 
