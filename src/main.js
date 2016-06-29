@@ -1,9 +1,5 @@
 // Include the prototypes
 require('prototype');
 
-var core = require('core');
-
-module.exports.loop = function () {
-    // Fire the tick event in the core
-    core.tick();
-};
+// Get the core, and call the tick method on server tick
+module.exports.loop = require('core').tick();
