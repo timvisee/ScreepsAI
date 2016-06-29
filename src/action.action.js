@@ -76,7 +76,7 @@ Action.prototype.tick = function() {
     var action = require(this._getLogicFile());
 
     // Call the tick method on the action logic
-    action.tick();
+    action.tick(this);
 };
 
 /**
