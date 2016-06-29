@@ -3,6 +3,8 @@ var eventHandler = require('event.handler');
 var gc = require('gc');
 var sourceController = require('source.controller');
 
+// Event handler test
+// TODO: Remove this
 eventHandler.listen(EVENTS.EVENT_TICK_END, function() {
     console.log('Used CPU: ' + Game.cpu.getUsed());
 });
