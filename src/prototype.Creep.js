@@ -1,120 +1,24 @@
-var taskController = require('task.controller');
+var CreepTaskController = require('task.creeptaskcontroller');
 
 /**
- * Get the type of task that is assigned to the given creep.
+ * Task controller instance for the creep.
  *
- * @returns {task|null} Assigned task type, or null if no task was assigned.
+ * @type {CreepTaskController|null} Creep task controller instance, or null if the instance isn't configured yet.
+ *
+ * @private
  */
-Creep.prototype.getTaskType = function() {
-    return taskController.getTaskType(this);
-};
+Creep.prototype._taskController = null;
 
 /**
- * Check whether the task that is assigned to the creep equals the given task type.
+ * Get the task controller for the creep.
  *
- * @param taskType Task type to equal to.
- *
- * @returns {boolean} True if the given task type equals the assigned task type, false if not.
+ * @returns {CreepTaskController} Task controller for the creep.
  */
-Creep.prototype.isTaskType = function(taskType) {
-    return taskController.isTaskType(this, taskType);
-};
-
-/**
- * Check whether the creep has a task assigned.
- *
- * @return {boolean} True if this creep has a task, false if not.
- */
-Creep.prototype.hasTask = function() {
-    return taskController.hasTask(this);
-};
-
-/**
- * Check whether the creep has any queued task.
- */
-Creep.prototype.hasTaskQueued = function() {
-    return taskController.hasTaskQueued(this);
-};
-
-/**
- * Get the task queue size of the creep.
- *
- * @return {number} Task queue size.
- */
-Creep.prototype.getTaskQueueSize = function() {
-    return taskController.getTaskQueueSize(this);
-};
-
-/**
- * Add a task to the creep.
- * This will automatically assign the task to the creep if no task is currently assigned.
- * If a task is already assigned, it will be added to the queue.
- *
- * @param taskType Task type.
- * @param [data] Task data.
- */
-Creep.prototype.addTask = function(taskType, data) {
-    return taskController.addTask(this, taskType, data);
-};
-
-/**
- * Assign a task to the creep.
- * This will overwrite the task that is currently assigned.
- *
- * @param taskType Task type.
- * @param [data] Task data.
- */
-Creep.prototype.assignTask = function(taskType, data) {
-    return taskController.assignTask(this, taskType, data);
-};
-
-/**
- * Queue a task for the creep.
- * This won't automatically assign the task to the creep if no task is currently assigned.
- *
- * @param taskType Task type.
- * @param [data] Task data.
- */
-Creep.prototype.queueTask = function(taskType, data) {
-    return taskController.queueTask(this, taskType, data);
-};
-
-/**
- * Assign the next task form the creeps queue if it has any.
- * This will overwrite any task that is currently assigned and doesn't complete it.
- *
- * @return {task|null} The type of the newly assigned task, or null if no task was assigned.
- */
-Creep.prototype.assignTaskFromQueue = function() {
-    return taskController.assignTaskFromQueue(this);
-};
-
-/**
- * Complete the task that is currently assigned to the creep.
- *
- * @return {task|null} The task type of the newly assigned task from queue, or null if no new task was queued.
- */
-Creep.prototype.completeTask = function() {
-    return taskController.completeTask(this);
-};
-
-/**
- * Reset the task for the creep.
- * This removes the current task from the creep if any is assigned and doesn't handle it as completed.
- * Resetting the task won't automatically assign a queued task, that must be done manually instead.
- *
- * The list of queued tasks for this creep will be reset if {@see resetQueue} is set to {@code true}.
- *
- * @param [resetQueue] {boolean} True to reset the task queue for this creep too.
- */
-Creep.prototype.resetTask = function(resetQueue) {
-    return taskController.resetTask(this, resetQueue);
-};
-
-/**
- * Reset the task queue for the creep.
- * This removes all queued tasks from the creep if any are queued.
- */
-Creep.prototype.resetTaskQueue = function() {
-    return taskController.resetTaskQueue(this);
+Creep.prototype.getTaskController = function() {
+    // Return the task controller if it's already instantiated
+    if(this._taskController)
+        return this._taskController;
+    
+    // Instantiate the task controller
+    this._taskController = new CreepTaskController(this);
 };
