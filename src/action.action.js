@@ -46,8 +46,6 @@ Action.prototype.deserialize = function(serialized) {
     );
 };
 
-
-
 /**
  * Get the action type.
  *
