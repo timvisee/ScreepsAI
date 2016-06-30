@@ -1,9 +1,17 @@
 /**
  * Array utilities.
  *
- * @type {{isArray: modules.export.isArray}}
+ * @type {{isArray: module.export.isArray}}
  */
 module.export = {
+
+    /**
+     * Check whether the given is an array.
+     *
+     * @param {*} arr Value to test.
+     *
+     * @returns {boolean} True if the given value is an array, false if not.
+     */
     isArray: function(arr) {
         return arr instanceof Array;
     }
