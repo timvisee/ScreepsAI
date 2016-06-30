@@ -4,21 +4,46 @@ var eventHandler = require('event.handler');
 /**
  * Action constructor.
  *
- * @param {Action|{}} instance Action instance, or an object representing an action.
+ * @param {*} type Action type object.
+ * @param {*|null} [data] Action data.
  *
  * @constructor
  */
-var Action = function(instance) {
-    // Make sure the given instance is an object
-    if(!(instance instanceof Object))
-        throw new Error('Invalid Task instance given.');
-
+var Action = function(type, data) {
     // Set the action type and data
-    this._type = instance._type;
-    this._data = instance._data;
+    this._type = type;
+    this._data = data || null;
 
     // Set the completed state
     this._completed = false;
+};
+
+/**
+ * Serialize the action into an object.
+ *
+ * @returns {{type: (*|Object), data: (*|null|*)}}
+ */
+Action.prototype.serialize = function() {
+    // Create and return an object with the action type and it's data
+    return {
+        type: this._type,
+        data: this._data
+    };
+};
+
+/**
+ * Deserialize an action from an object.
+ *
+ * @param {*} serialized Serialized object.
+ *
+ * @returns {Action} Deserialized action.
+ */
+Action.prototype.deserialize = function(serialized) {
+    // Create and return a new action
+    return new Action(
+        serialized.type,
+        serialized.data || null
+    );
 };
 
 /**
