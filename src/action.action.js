@@ -144,6 +144,7 @@ Action.prototype.complete = function() {
  * Destroy the action after it has being used.
  * This also destroys the memory used by the action.
  */
+// TODO: Is this method still required, the class doesn't depend on memory anymore.
 Action.prototype.destroy = function() {
     // TODO: Remove all memory used by this action, and remove the whole action entry.
 };
