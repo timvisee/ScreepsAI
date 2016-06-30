@@ -46,6 +46,8 @@ Action.prototype.deserialize = function(serialized) {
     );
 };
 
+
+
 /**
  * Get the action type.
  *
@@ -62,6 +64,7 @@ Action.prototype.getType = function() {
  *
  * @private
  */
+// TODO: Rename this principle, it's weird!
 Action.prototype._getLogicFile = function() {
     return this._type.file;
 };
