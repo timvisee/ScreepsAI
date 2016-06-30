@@ -34,7 +34,7 @@ Action.prototype.serialize = function() {
 /**
  * Deserialize an action from an object.
  *
- * @param {*} serialized Serialized object.
+ * @param {*} serialized Serialized action object.
  *
  * @returns {Action} Deserialized action.
  */

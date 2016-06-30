@@ -1,36 +1,70 @@
 var Action = require('action.action');
+var utilArray = require('util.array');
+var utilObject = require('util.object');
 
 /**
  * Task constructor.
  *
- * @param {Task|{}} instance Task instance, or an object representing a task.
+ * @param {*} type Task type object.
+ * @param {*} [data] A data object.
+ * @param {Array} [actions] An array of actions in this task.
  *
  * @constructor
  */
-var Task = function(instance) {
-    // Make sure the given instance is an object
-    if(!(instance instanceof Object))
-        throw new Error('Invalid Task instance given.');
-
+var Task = function(type, data, actions) {
     // Set the task type
-    this._type = instance._type;
+    this._type = type;
 
-    // TODO: Properly parse the list of actions.
+    // Set the task data
+    this._data = data || {};
 
-    // Set the actions
-    this._actions = instance._actions || [];
+    // Set the task actions
+    this._actions = (actions !== undefined && utilArray.isArray(actions)) ? actions : [];
+};
 
-    // Do some parsing, but only if at least one action is available
-    if(!this.hasActions())
-        return;
+/**
+ * Serialize the task into an object.
+ *
+ * @returns {{type: (*|Object), data: (*|null|*)}}
+ */
+Task.prototype.serialize = function() {
+    // Serialize all the actions
+    var actionsSerialized = [];
 
-    // Everything is all right if the actions are an instance of the task object
-    if(this._actions[0] instanceof Action)
-        return;
+    // Loop through all actions and serialize them
+    for(var action in this._actions)
+        actionsSerialized.push(action.serialize());
 
-    // Parse each action, and make each an Action instance
-    for(var i = 0, actionCount = this._actions.length; i < actionCount; i++)
-        this._actions[i] = new Action(this._actions[i]);
+    // Create and return an object with the task type, it's data, and it's actions
+    return {
+        type: this._type,
+        data: this._data,
+        actions: actionsSerialized
+    };
+};
+
+/**
+ * Deserialize a task from an object.
+ *
+ * @param {*} serialized Serialized task object.
+ *
+ * @returns {Task} Deserialized task.
+ */
+Task.prototype.deserialize = function(serialized) {
+    // Create an array of actions
+    var actions = [];
+
+    // Deserialize each action
+    var serializedActions = serialized.actions;
+    for(var action in serializedActions)
+        actions.push(Action.deserialize(action));
+
+    // Create and return a new task
+    return new Task(
+        serialized.type,
+        serialized.data,
+        actions
+    );
 };
 
 /**
@@ -62,6 +96,42 @@ Task.prototype.setType = function(taskType) {
 Task.prototype.isType = function(taskType) {
     // Compare the IDs of both tasks
     return this._type.id == taskType.id;
+};
+
+/**
+ * Get the task data object.
+ * If no data is specified for this task, an empty object is returned.
+ * Use {@link Task.hasData()} to check whether the task has any data.
+ *
+ * @returns {*} Task data.
+ */
+Task.prototype.getData = function() {
+    return this._data;
+};
+
+/**
+ * Set the task data. The task data must be an serializable object.
+ * If a non-object or empty object is given, the task data is cleared.
+ *
+ * @param {*|null} data Task data object, or null to clear the task data.
+ */
+Task.prototype.setData = function(data) {
+    // Set the data if it's a non-empty object
+    if(!utilObject.isEmpty(data))
+        this._data = data;
+
+    // Empty the data
+    else
+        this._data = {};
+};
+
+/**
+ * Check whether this task has any data.
+ *
+ * @returns {boolean} True if the task has data, false if not.
+ */
+Task.prototype.hasData = function() {
+    return utilObject.isEmpty(this._data);
 };
 
 /**
