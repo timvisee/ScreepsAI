@@ -1,7 +1,7 @@
 /**
  * Object utilities.
  *
- * @type {{isObject: module.export.isObject}}
+ * @type {{isEmpty: module.export.isEmpty}}
  */
 module.export = {
     
@@ -12,7 +12,7 @@ module.export = {
      *
      * @returns {boolean} True if the object is empty, false if not. If a non-object is given, false is returned.
      */
-    isObject: function(object) {
+    isEmpty: function(object) {
         return Object.keys(object).length === 0 && object.constructor === Object;
     }
 };
