@@ -248,12 +248,9 @@ Task.prototype.completeAction = function() {
  * This also routes the tick call to the assigned action.
  */
 Task.prototype.tick = function() {
-    // Get the action that is currently assigned
-    var currentAction = this.getAction();
-
-    // Fire the tick on the currently assigned action
-    if(currentAction !== null)
-        currentAction.tick(this);
+    // Fire the tick method on the currently assigned action, if this task has any assigned
+    if(this.hasActions())
+        this.getAction().tick(this);
 };
 
 // Export the Task object
