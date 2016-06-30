@@ -253,7 +253,7 @@ Task.prototype.tick = function() {
 
     // Fire the tick on the currently assigned action
     if(currentAction !== null)
-        currentAction.tick();
+        currentAction.tick(this);
 };
 
 // Export the Task object

@@ -93,8 +93,10 @@ Action.prototype.isType = function(actionType) {
 
 /**
  * Called on tick.
+ *
+ * @param {Task|null} [task] The task this action is executed by.
  */
-Action.prototype.tick = function() {
+Action.prototype.tick = function(task) {
     // Get the action file and make sure it's valid
     var actionFile = this._getLogicFile();
     if(!actionFile)
