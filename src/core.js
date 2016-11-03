@@ -10,6 +10,13 @@ eventHandler.listen(EVENTS.EVENT_TICK_END, function() {
 });
 
 /**
+ * Chance of garbage collection to occur each tick.
+ *
+ * @type {number} Number defining the chance, where 1 is 100%.
+ */
+const TICK_GC_CHANCE = 0.01;
+
+/**
  * Core.
  *
  * @type {{}}
@@ -24,11 +31,12 @@ module.exports = {
         eventHandler.fire(EVENTS.EVENT_TICK_START);
 
         // Garbage collection
-        gc.gc();
+        if(Math.random() < TICK_GC_CHANCE)
+            gc.gc();
 
         // Update the source controller
         sourceController.update();
-        
+
         // Tick all creeps
         for(var creepName in Game.creeps)
             Game.creeps[creepName].tick();
