@@ -2,6 +2,6 @@
   "name": "ScreepsAI",
   "version": "0.0.0",
   "private": true,
-  "scripts": { },
-  "dependencies": { }
+  "scripts": {},
+  "dependencies": {}
 }

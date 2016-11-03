@@ -9,7 +9,7 @@ title Screeps script uploader
 @echo Mirroring sources directory...
 @echo.
 @echo.
-robocopy .\src\ "C:\Users\Tim\AppData\Local\Screeps\scripts\screeps.com\ScreepsAI" /MIR
+robocopy .\src\ "C:\Users\Tim\AppData\Local\Screeps\scripts\screeps.com\tutorial-1" /MIR
 
 @echo.
 @echo.
