@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "author": "Tim Visée <timvisee@gmail.com>",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha ./server/test"
+  },
   "homepage": "https://github.com/timvisee/ScreepsAI",
   "repository": {
     "type": "git",
@@ -12,5 +14,7 @@
   "bugs": {
     "url": "https://github.com/timvisee/ScreepsAI/issues"
   },
-  "dependencies": {}
+  "dependencies": {
+    "mocha": "2.4.5"
+  }
 }
