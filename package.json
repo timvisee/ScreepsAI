@@ -4,7 +4,7 @@
   "private": true,
   "author": "Tim Visée <timvisee@gmail.com>",
   "scripts": {
-    "test": "mocha ./server/test"
+    "test": "mocha ./test"
   },
   "homepage": "https://github.com/timvisee/ScreepsAI",
   "repository": {
