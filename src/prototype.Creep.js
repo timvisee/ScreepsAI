@@ -1,4 +1,4 @@
-var CreepTaskController = require('task.creeptaskcontroller');
+var CreepTaskController = require('./task.creeptaskcontroller');
 
 /**
  * Task controller instance for the creep.

@@ -1,5 +1,5 @@
-var EVENTS = require('event.events');
-var eventHandler = require('event.handler');
+var EVENTS = require('./event.events');
+var eventHandler = require('./event.handler');
 
 /**
  * Garbage collector.

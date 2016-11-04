@@ -1,7 +1,7 @@
-var EVENTS = require('event.events');
-var eventHandler = require('event.handler');
-var gc = require('gc');
-var sourceController = require('source.controller');
+var EVENTS = require('./event.events');
+var eventHandler = require('./event.handler');
+var gc = require('./gc');
+var sourceController = require('./source.controller');
 
 // Event handler test
 // TODO: Remove this

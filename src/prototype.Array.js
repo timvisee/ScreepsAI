@@ -1,4 +1,4 @@
-var arrayUtils = require('util.array');
+var arrayUtils = require('./util.array');
 
 /**
  * Method to check whether an object is an array.

@@ -1,5 +1,5 @@
-var EVENTS = require('events.events');
-var eventHandler = require('event.handler');
+var EVENTS = require('./events.events');
+var eventHandler = require('./event.handler');
 
 /**
  * Action constructor.

@@ -1,4 +1,4 @@
-var Task = require('task.task');
+var Task = require('./task.task');
 
 // TODO: Class not finished!
 

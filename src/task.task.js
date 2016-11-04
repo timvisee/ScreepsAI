@@ -1,6 +1,6 @@
-var Action = require('action.action');
-var utilArray = require('util.array');
-var utilObject = require('util.object');
+var Action = require('./action.action');
+var utilArray = require('./util.array');
+var utilObject = require('./util.object');
 
 /**
  * Task constructor.

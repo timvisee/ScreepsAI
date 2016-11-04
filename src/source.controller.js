@@ -1,4 +1,4 @@
-var taskTypes = require('task.type');
+var taskTypes = require('./task.type');
 
 const MEMORY_KEY_SOURCES = 'sources';
 
