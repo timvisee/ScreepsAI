@@ -1,6 +1,6 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/timvisee/ScreepsAI.svg)](https://circleci.com/gh/timvisee/ScreepsAI)
 [![Travis](https://img.shields.io/travis/timvisee/ScreepsAI.svg)](https://travis-ci.org/timvisee/ScreepsAI)
-![Libraries.io for GitHub](https://img.shields.io/librariesio/github/timvisee/ScreepsAI.svg)
+[![Libraries.io for GitHub](https://img.shields.io/librariesio/github/timvisee/ScreepsAI.svg)](https://libraries.io/github/timvisee/ScreepsAI)
 
 # ScreepAI
 My attempt to write Artificial Intelligence code for the Screeps game.
