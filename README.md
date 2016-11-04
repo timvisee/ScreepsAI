@@ -7,7 +7,7 @@ My attempt to write Artificial Intelligence code for the Screeps game.
 This is still a work in progress. The current state of the project doesn't properly run and should not be used in the game environment.
 
 ## Roadmap
-_Comming..._
+_Coming..._
 
 ## Builds
 The project is currently being build on [CircleCI](https://circleci.com/gh/timvisee/ScreepsAI/) and [TravisCI](https://travis-ci.org/timvisee/ScreepsAI).
