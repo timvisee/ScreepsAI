@@ -1,0 +1,7 @@
+# Configuration for Circle CI
+machine:
+  node:
+    version: 4.5.0
+dependencies:
+  override:
+    - npm install --dev
