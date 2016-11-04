@@ -3,7 +3,7 @@
  *
  * @type {{isArray: module.export.isArray}}
  */
-module.export = {
+module.exports = {
 
     /**
      * Check whether the given is an array.
