@@ -15,6 +15,7 @@
     "url": "https://github.com/timvisee/ScreepsAI/issues"
   },
   "dependencies": {
-    "mocha": "2.4.5"
+    "mocha": "3.1.2",
+    "chai": "3.5.0"
   }
 }
