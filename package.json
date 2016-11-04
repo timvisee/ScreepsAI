@@ -2,6 +2,15 @@
   "name": "ScreepsAI",
   "version": "0.0.0",
   "private": true,
+  "author": "Tim Visée <timvisee@gmail.com>",
   "scripts": {},
+  "homepage": "https://github.com/timvisee/ScreepsAI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timvisee/ScreepsAI"
+  },
+  "bugs": {
+    "url": "https://github.com/timvisee/ScreepsAI/issues"
+  },
   "dependencies": {}
 }
